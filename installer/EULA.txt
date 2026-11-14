@@ -1,0 +1,93 @@
+﻿NadirStation GOES GVAR 解码器 / NadirStation GOES GVAR Decoder
+用户协议与免责声明 / Terms of Use and Disclaimer
+版本 1.0.0 · 2026-11-04 · 开发者 / Developer: AGcov（BI2QYN）
+
+========================================================================
+
+【中文】
+
+请在安装或使用本软件之前阅读本协议。安装、复制或以任何方式使用本软件，即表示你已阅读并同意本协议。如果你不同意，请不要安装或使用，并删除已获得的副本。本协议在适用法律允许的范围内适用，不影响你依法享有的、不能通过合同排除的权利。
+
+1. 软件是什么、不是什么
+1.1 NadirStation GOES GVAR 解码器（“本软件”）由 AGcov（BI2QYN）（“开发者”）开发。它读取基带 IQ 录音，或通过 RTL-SDR 实时接收，按公开的 GOES-N/O/P GVAR 资料进行 BPSK 解调、块同步和扫描行拼接，生成成像仪各通道的图像。
+1.2 本软件只接收，不具备任何发射功能。它不含联网功能（见第 6 条）。通过 RTL-SDR 接收时，本软件调用你自备的 rtlsdr.dll；该库不包含在本软件中。
+1.3 本软件是业余爱好者的学习研究项目，不是气象业务系统，不是经过认证的产品，与美国国家海洋和大气管理局（NOAA）、美国航天局（NASA）、卫星运营方或任何设备/软件厂商均无隶属、授权、认可或合作关系。文中出现的名称和标识归各自所有者所有，仅用于说明兼容性。
+
+2. 许可与源代码
+2.1 本软件的源代码按 GNU 通用公共许可证第 3 版或更高版本（GPL-3.0-or-later）发布，全文见安装目录的 LICENSES\GPL-3.0.txt 或项目主页。你依该许可证享有使用、研究、修改和再分发的权利，本协议不限制这些权利。
+2.2 本协议的第 3 至 6 条（接收合规、禁止的关键用途、免责、责任限制）在适用法律允许的范围内适用于你对本软件的使用。
+
+3. 合规责任由你自己承担
+3.1 接收卫星信号、保存和使用其中的数据，可能受你所在国家或地区的无线电管理、电信、数据和版权法规约束。你应当自行了解并遵守这些法规。
+3.2 卫星数据和产品可能受其权利人或数据提供方设定的许可条件、署名要求和再分发限制约束。你应当自行查阅并遵守，本软件的输出不因经过本软件处理而改变其权利归属。
+3.3 使用 RTL-SDR 的 Bias-T 选项会通过天线接口输出直流电压。只有天线或前置放大器确实需要供电时才打开；接到不需要供电的设备上可能损坏设备。该选项默认关闭，是否打开由你自己决定并承担后果。
+
+4. 禁止的关键用途
+4.1 解码结果可能不完整、不准确或有延迟，原因包括信号弱、USB 丢样、录音质量差、软件缺陷和算法限制。
+4.2 严禁将本软件及其产出物用于任何一旦出错可能危及人身、财产、公共安全或造成重大损失的场合，包括气象预报与灾害预警的决策依据、航空航海导航、救援与应急指挥、医疗、工业控制和金融交易。
+4.3 本软件及其产出物不能替代气象部门或其他官方机构发布的预报、预警和公告。
+
+5. 免责声明与责任限制
+5.1 在适用法律允许的最大范围内，本软件按“现状”和“可获得”的状态提供，不附带任何明示或暗示的保证，包括适销性、特定用途适用性、准确性、完整性、可靠性、不侵犯第三方权利以及无错误、不中断运行的保证。开发者不保证它能在你的计算机、录音、RTL-SDR 设备或信号条件下成功解码。
+5.2 本软件的测试基于有限的录音和模拟数据，开发者无法在所有硬件、操作系统、驱动和信号条件下测试。请自行验证输出是否满足你的用途。
+5.3 本软件会在你选择的文件夹中创建和写入文件（图像、遥测、日志），并读取你选择的录音文件。请在使用前备份重要数据。
+5.4 在适用法律允许的最大范围内，开发者及贡献者不对因使用或无法使用本软件而产生的间接、附带、特殊、惩罚性或后果性损害承担责任，包括利润或业务损失、数据丢失、设备损坏和第三方索赔；开发者的全部责任总额以你为获得本软件实际支付的费用（如有）为上限。本条不排除或限制依法不能排除或限制的责任，包括因故意或重大过失造成人身损害或财产损失的责任。
+
+6. 隐私
+6.1 本软件自身的代码不包含统计、遥测上传、广告、自动更新或任何网络通信功能，不收集、不上传你的文件、路径、使用记录或个人信息，只会用系统默认程序打开你本机的文件夹或文件。安装包随附的 Qt 运行库中包含网络相关的库文件（由部署工具自动带入），本软件不使用其网络功能。
+6.2 本软件会在输出文件夹和“文档\NadirStation_GOES_GVAR”下写入含有观测时间、处理统计的文件和一个 runtime.log 日志。把它们发给他人之前，请自行检查其中是否含有你不愿公开的信息。
+6.3 提供下载的网站可能保存标准的服务器访问日志（访问时间、IP 地址、请求的页面和浏览器标识），仅用于运维、安全防护和排错。
+
+7. 第三方组件
+Qt 6（LGPL v3，动态链接）和 MinGW-w64 运行库随安装包提供，许可证全文和版本见安装目录的 LICENSES 文件夹、THIRD_PARTY_NOTICES.txt 和 LGPL_COMPLIANCE.txt。这些组件的许可不因本协议而改变。
+
+8. 其他
+8.1 适用法律：本协议适用中华人民共和国法律（不包括其冲突法规则）。争议应友好协商；协商不成的，由依适用法律有管辖权的法院处理。
+8.2 如果本协议的任何条款被认定为无效，该条款在最小必要范围内修改或删除，其余条款继续有效。
+8.3 本协议有中文和英文两个版本，两者不一致时以中文版为准。
+8.4 联系方式：报告错误、提出版权或隐私方面的问题，请发邮件到 cgand9855@163.com 。
+
+========================================================================
+
+[English]
+
+Please read this Agreement before installing or using the software. By installing, copying or using it you confirm that you have read and agree to it. If you do not agree, do not install or use the software and delete any copy you have. It applies to the extent permitted by applicable law and does not affect statutory rights that cannot be excluded by contract.
+
+1. What the software is and is not
+1.1 NadirStation GOES GVAR Decoder (the "Software") is developed by AGcov（BI2QYN） (the "Developer"). It reads baseband IQ recordings, or receives live from an RTL-SDR, and following the public GOES-N/O/P GVAR documentation performs BPSK demodulation, block synchronisation and scan-line assembly to produce images of the imager channels.
+1.2 The Software only receives. It has no transmit function and contains no networking (see Section 6). For live reception it uses an rtlsdr.dll that you supply; that library is not part of the Software.
+1.3 The Software is an amateur learning and research project. It is not an operational meteorological system, it is not a certified product, and it is not affiliated with, authorised, endorsed or sponsored by NOAA, NASA, the satellite operator or any equipment or software vendor. Names and marks belong to their owners and are used only to describe compatibility.
+
+2. Licence and source code
+2.1 The source code is released under the GNU General Public License, version 3 or later (GPL-3.0-or-later); the full text is in LICENSES\GPL-3.0.txt in the installation folder and on the project page. Your rights under that licence to use, study, modify and redistribute are not limited by this Agreement.
+2.2 Sections 3 to 6 (compliance, prohibited critical uses, disclaimer, limitation of liability) apply to your use of the Software to the extent permitted by applicable law.
+
+3. Compliance is your responsibility
+3.1 Receiving satellite signals and keeping and using the data they carry may be regulated by radio, telecommunications, data and copyright law where you live. You must find out about and obey these rules.
+3.2 Satellite data and products may be subject to licensing conditions, attribution requirements and redistribution limits set by their rights holders or data providers. You must read and follow them; the Software's output does not change who holds the rights.
+3.3 The RTL-SDR Bias-T option puts a DC voltage on the antenna connector. Switch it on only when the antenna or preamplifier needs the power; connecting equipment that does not may damage it. It is off by default, and switching it on is your decision and your responsibility.
+
+4. Prohibited critical uses
+4.1 Results may be incomplete, inaccurate or late, for reasons including weak signal, USB sample loss, poor recordings, software defects and algorithmic limits.
+4.2 You must not use the Software or its output where an error could endanger life, property or public safety or cause serious loss, including as the basis for weather forecasting or warning decisions, air or marine navigation, rescue and emergency command, medical use, industrial control or financial trading.
+4.3 The Software and its output are not a substitute for forecasts, warnings and notices issued by meteorological services or other official bodies.
+
+5. Disclaimer and limitation of liability
+5.1 To the maximum extent permitted by law the Software is provided "AS IS" and "AS AVAILABLE", without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, accuracy, completeness, reliability, non-infringement, and freedom from errors or interruption. The Developer does not warrant that it will decode successfully on your computer, with your recordings, RTL-SDR device or signal conditions.
+5.2 Testing was based on a limited set of recordings and simulated data; the Developer cannot test every hardware, operating system, driver and signal condition. Check that the output suits your purpose.
+5.3 The Software creates and writes files (images, telemetry, logs) in the folder you choose and reads the recordings you choose. Back up important data first.
+5.4 To the maximum extent permitted by law the Developer and contributors are not liable for indirect, incidental, special, punitive or consequential damages arising from the use of or inability to use the Software, including loss of profit or business, loss of data, damage to equipment and third-party claims; the Developer's aggregate liability is limited to the amount you actually paid for the Software, if any. This Section does not exclude or limit liability that cannot be excluded or limited by law, including liability for personal injury or property damage caused by intent or gross negligence.
+
+6. Privacy
+6.1 The Software's own code contains no analytics, telemetry upload, advertising, automatic update or any network communication, and does not collect or upload your files, paths, usage or personal information; it only asks the system to open a folder or file on your computer. The Qt runtime shipped with the installer contains networking libraries (added automatically by the deployment tool); the Software does not use them.
+6.2 The Software writes files with observation times and processing statistics to the output folder, and a runtime.log to Documents\NadirStation_GOES_GVAR. Check them before sharing if they contain anything you do not wish to publish.
+6.3 The website that offers the download may keep standard server access logs (time, IP address, requested page and browser identifier), used only for operation, security and troubleshooting.
+
+7. Third-party components
+Qt 6 (LGPL v3, dynamically linked) and the MinGW-w64 runtime ship with the installer; licence texts and versions are in the LICENSES folder, THIRD_PARTY_NOTICES.txt and LGPL_COMPLIANCE.txt. Their licences are not changed by this Agreement.
+
+8. General
+8.1 Governing law: the laws of the People's Republic of China (excluding conflict-of-law rules). Disputes shall first be settled by friendly consultation; failing that, by the courts with jurisdiction under applicable law.
+8.2 If any provision is held invalid, it is modified or removed to the minimum extent necessary and the rest remains in force.
+8.3 This Agreement exists in Chinese and English; the Chinese version prevails if they differ.
+8.4 Contact: send bug reports and copyright or privacy questions to cgand9855@163.com .
